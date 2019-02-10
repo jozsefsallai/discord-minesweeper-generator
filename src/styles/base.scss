@@ -1,0 +1,215 @@
+@import './colors';
+@import './discord';
+@import './githubRibbon';
+@import './mixins';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+body {
+  margin: 0;
+  font: 15px / 1.6 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: $discord;
+  text-decoration: underline;
+  text-decoration-color: $discord-light;
+
+  &:hover {
+    text-decoration-color: $discord;
+  }
+
+  .copy-to-clipboard > & {
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+    background: #efefef;
+    border: 1px solid #bebebe;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+
+    &:hover {
+      background: #dfdfdf;
+    }
+  }
+}
+
+hr {
+  border: none;
+  margin: 30px 0;
+  height: 1px;
+  background: #dedede;
+}
+
+.input-container {
+  margin-bottom: 15px;
+
+  input, label {
+    display: block;
+  }
+
+  label {
+    font-weight: 600;
+    
+    &.checkbox-label {
+      display: inline-block;
+      font-weight: normal;
+    }
+  }
+
+  input, textarea {
+    font: 15px / 1.6 'Roboto', 'Helvetica Neue', sans-serif;
+    padding: .55rem .75rem;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #cecece;
+    border-radius: 4px;
+
+    &[type=number] {
+      width: 100px;
+    }
+    
+    &[type=checkbox] {
+      width: auto;
+      display: inline-block;
+    }
+    
+    &:focus {
+      border-color: $discord;
+    }
+  }
+  
+  textarea {
+    resize: none;
+    height: 200px;
+  }
+  
+  &.button {
+    text-align: center;
+    
+    button {
+      display: inline-block;
+      box-sizing: border-box;
+      background: $discord;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 10px 25px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 150ms background ease-in-out;
+      outline: none;
+      
+      &:hover {
+        background: darken($discord, 10%);
+      }
+    }
+  }
+
+  @include md-break {
+    input {
+      &[type=number] {
+        width: 100%;
+      }
+    }
+
+    &.button {
+      button {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.title {
+  font-size: 36px;
+  margin: 0;
+  margin-bottom: 35px;
+}
+
+.main {
+  width: 980px;
+  margin: 0 auto;
+  padding: 50px 0;
+
+  @include md-break {
+    width: auto;
+    margin: 10px;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+
+  @include md-break {
+    display: block;
+  }
+}
+
+.form-container, .example-container {
+  width: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+
+  @include md-break {
+    width: 100%;
+    display: block;
+    margin-bottom: 40px;
+  }
+}
+
+.form-container {
+  padding-right: 10px;
+  
+  .numbers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include md-break {
+      display: block;
+    }
+  }
+}
+
+.example-container {
+  padding-left: 10px;
+}
+
+.message-box {
+  padding: 10px 20px;
+  margin: 2px 0;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid;
+
+  &.success {
+    color: $success;
+    border-color: $success;
+    background: lighten($success, 45%);
+  }
+
+  &.error {
+    color: $danger;
+    border-color: $danger;
+    background: lighten($danger, 35%);
+  }
+}
+
+footer {
+  padding: 30px 10px;
+  color: #ababab;
+  font-size: 14px;
+  text-align: center;
+
+  img {
+    height: 18px;
+    vertical-align: middle;
+  }
+}

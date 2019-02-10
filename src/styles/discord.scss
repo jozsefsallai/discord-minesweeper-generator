@@ -1,0 +1,103 @@
+@import './colors';
+
+.discord-message {
+  padding: 20px;
+  background: $discord-black;
+  line-height: 1;
+  color: #fff;
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 100%;
+    position: relative;
+    cursor: pointer;
+    
+    img {
+      max-width: 100%;
+      border-radius: 100%;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .overlay {
+      background: #000;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 100;
+      border-radius: 100%;
+      transition: 150ms opacity ease-in-out;
+      
+      &:hover {
+        opacity: .2;
+      }
+    }
+  }
+  
+  .message-content {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 3px;
+    width: calc(100% - 60px);
+    
+    .name, .time {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    .time {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0;
+      margin-left: .3rem;
+      color: hsla(0,0%,100%,.2);
+    }
+    
+    .fulltext {
+      color: $discord-text;
+      margin-top: 6px;
+      line-height: 1.2;
+      
+      &.error {
+        color: $discord-error;
+      }
+
+      img {
+        max-width: 20px;
+      }
+      
+      .spoiler {
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 2px;
+        background: $discord-spoiler;
+        padding: 2px;
+        color: transparent;
+
+        img {
+          opacity: 0;
+        }
+        
+        &:hover {
+          background: rgba(32,34,37,.8);
+        }
+        
+        &.opened {
+          background: hsla(0,0%,100%,.1);
+          color: $discord-text;
+
+          img {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
